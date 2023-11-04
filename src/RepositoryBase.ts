@@ -7,8 +7,10 @@ export class RepositoryBase<T> {
         this.model = schemaModel;
     }
 
-    async insertMany(elems: any[]): Promise<any[]>{
-        elems = await this.model.insertMany(elems);
+    async insertMany(elems: T[]): Promise<T[]>{
+
+
+        elems = await this.model.insertMany(elems) as T[];
         return elems;
     }
 }
